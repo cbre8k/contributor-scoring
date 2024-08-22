@@ -4,7 +4,7 @@ pragma solidity 0.8.26;
 import {Context} from "@openzeppelin-contracts-5.0.2/utils/Context.sol";
 
 contract Penalty is Context {
-    uint256 constant public PENALTY_POINTS = 10_000;
+    uint256 public constant PENALTY_POINTS = 100_000;
     mapping(address => uint256) private penalties;
 
     function _getPenalty(address contributor) private view returns (uint256) {

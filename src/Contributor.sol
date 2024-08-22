@@ -8,9 +8,7 @@ import {EvaluationManager} from "./EvaluationManager.sol";
 contract Contributor is EvaluationManager {
     AccessManager public manager;
 
-    constructor(
-        address manager_
-    ) {
+    constructor(address manager_) {
         manager = AccessManager(manager_);
     }
 
@@ -20,7 +18,6 @@ contract Contributor is EvaluationManager {
     }
 
     function openEvaluationSession(bytes32 poe_) external onlyRole(manager.DEFAULT_ADMIN_ROLE()) {
-        _close(epoch);
         _open(poe_);
     }
 

@@ -22,6 +22,15 @@ contract EvaluationManager is Points {
     uint256 public epoch;
     mapping(uint256 => Evaluation) private evaluations;
 
+    function getEvaluationDetail(uint256 epoch_)
+        external
+        view
+        returns (bytes32 poe, uint128 openAt, uint128 closeAt, address[] memory evaluators)
+    {
+        Evaluation storage eval = evaluations[epoch_];
+        return (eval.poe, eval.openAt, eval.closeAt, eval.evaluators.values());
+    }
+
     function _isEvaluated(address contributor_) internal view returns (bool) {
         return evaluations[epoch].evaluators.contains(contributor_);
     }

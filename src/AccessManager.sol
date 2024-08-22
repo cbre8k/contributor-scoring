@@ -15,7 +15,10 @@ contract AccessManager is IAccessManager, AccessControlEnumerable {
     }
 
     function getContributors() external view returns (address[] memory contributors) {
-        for (uint256 i; i < getRoleMemberCount(Roles.CONTRIBUTOR_ROLE); ++i) {
+        uint256 contributorCount = getRoleMemberCount(Roles.CONTRIBUTOR_ROLE);
+        contributors = new address[](contributorCount);
+
+        for (uint256 i = 0; i < contributorCount; ++i) {
             contributors[i] = getRoleMember(Roles.CONTRIBUTOR_ROLE, i);
         }
     }
