@@ -45,11 +45,11 @@ abstract contract BaseMigrate is BaseDeploy {
         );
         console.log(
             unicode"Logic 🧩: ".green(),
-            string.concat(_explorerUrl(), vm.toString(logic))
+            string.concat(_explorerUrl(), "address/", vm.toString(logic))
         );
         console.log(
             unicode"Proxy ⚙️ : ".green(),
-            string.concat(_explorerUrl(), vm.toString(proxy))
+            string.concat(_explorerUrl(), "address/", vm.toString(proxy))
         );
     }
 
@@ -68,11 +68,11 @@ abstract contract BaseMigrate is BaseDeploy {
         );
         console.log(
             unicode"Logic 🧩: ".green(),
-            string.concat(_explorerUrl(), vm.toString(logic))
+            string.concat(_explorerUrl(), "address/", vm.toString(logic))
         );
         console.log(
             unicode"Proxy ⚙️ : ".green(),
-            string.concat(_explorerUrl(), vm.toString(proxy))
+            string.concat(_explorerUrl(), "address/", vm.toString(proxy))
         );
     }
 
@@ -85,11 +85,11 @@ abstract contract BaseMigrate is BaseDeploy {
         IProxy(proxy).upgradeToAndCall(logic, args);
         console.log(
             unicode"Logic 🧩: ".green(),
-            string.concat(_explorerUrl(), vm.toString(logic))
+            string.concat(_explorerUrl(), "address/", vm.toString(logic))
         );
         console.log(
             unicode"Proxy ⚙️ : ".green(),
-            string.concat(_explorerUrl(), vm.toString(proxy))
+            string.concat(_explorerUrl(), "address/", vm.toString(proxy))
         );
     }
 }
